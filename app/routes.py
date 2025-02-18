@@ -27,7 +27,7 @@ def create_password():
     db.session.commit()  # Save the record to the database
 
     # Return the new record as JSON with a 201 Created status code
-    return jsonify(new_password.to_dict()), 201
+    return jsonify({"success": "Password Created"}, new_password.to_dict()), 201
 
 # Read: Get all password entries
 @app.route('/passwords', methods=['GET'])
