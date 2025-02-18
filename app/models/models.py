@@ -1,7 +1,7 @@
 # app/models.py
 
 from datetime import datetime
-from .. import db
+from . import db
 
 class Password(db.Model):
     id = db.Column(db.Integer, primary_key=True)
