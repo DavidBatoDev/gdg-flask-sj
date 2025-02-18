@@ -2,6 +2,7 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 # Initialize SQLAlchemy without binding it to an app yet
 db = SQLAlchemy()
@@ -9,6 +10,7 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__)
     app.config.from_object('config.Config')
+    CORS(app)
 
     # Initialize the app with the database
     db.init_app(app)

@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 # ---------------------------
 # Initialize the Flask App
 # ---------------------------
 app = Flask(__name__)
+
+CORS(app)  # Enable CORS for all routes
 
 # ---------------------------
 # Configure the Database
