@@ -4,19 +4,19 @@ from datetime import datetime
 from . import db
 
 class Password(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    service = db.Column(db.String(80), nullable=False)
-    username = db.Column(db.String(80), nullable=False)
-    password = db.Column(db.String(120), nullable=False)  # Remember: In production, encrypt this!
-    notes = db.Column(db.String(200), nullable=True)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    id = db.Column(db.Integer, primary_key=True)  # Unique ID for each entry
+    title = db.Column(db.String(80), nullable=False)  # Title of the entry (e.g., "GitHub")
+    username = db.Column(db.String(80), nullable=False)  # Username for the service
+    password = db.Column(db.String(120), nullable=False)  # The password
 
     def to_dict(self):
+        """
+        Convert the Password record to a dictionary.
+        This helps when sending JSON responses.
+        """
         return {
             "id": self.id,
-            "service": self.service,
+            "title": self.title,
             "username": self.username,
-            "password": self.password,
-            "notes": self.notes,
-            "created_at": self.created_at.isoformat()
+            "password": self.password
         }
