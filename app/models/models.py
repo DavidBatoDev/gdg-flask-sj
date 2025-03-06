@@ -1,7 +1,7 @@
-# app/models.py
+# app/models/models.py
 
 from datetime import datetime
-from . import db
+from app import db
 
 class Password(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # Unique ID for each entry

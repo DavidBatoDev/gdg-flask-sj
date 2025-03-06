@@ -1,8 +1,8 @@
 # app/routes.py
 
 from flask import request, jsonify, abort, current_app as app
-from . import db
-from .models import Password
+from app import db
+from app.models.models import Password
 
 # ---------------------------
 # API Endpoints (CRUD Operations)
