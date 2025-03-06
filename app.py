@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
+from flask_cors import CORS # for managing cross-origin
 
 # ---------------------------
 # Initialize the Flask App
@@ -45,6 +45,14 @@ class Password(db.Model):
 # ---------------------------
 # API Endpoints (CRUD Operations)
 # ---------------------------
+
+# Route for hello world
+@app.route('/hello-world', methods=["GET"])
+def hello_world():
+    hello = {
+        "data": "Hello Flask!"
+    }
+    return jsonify(hello)
 
 # Create: Add a new password entry
 @app.route('/passwords', methods=['POST'])

@@ -1,6 +1,5 @@
 # app/routes.py
-
-from flask import request, jsonify, abort, current_app as app
+from flask import current_app as app, request, abort, jsonify
 from app import db
 from app.models.models import Password
 
